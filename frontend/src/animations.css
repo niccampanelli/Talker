@@ -1,0 +1,7 @@
+.contact:active{
+    background-color: rgb(209, 209, 209);
+}
+
+.configBtn:hover{
+    color: rgb(95, 95, 95);
+}
