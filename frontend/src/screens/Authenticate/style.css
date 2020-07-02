@@ -1,7 +1,67 @@
-.content{
-    position: fixed;
-    width: 100vw;
-    height: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, 20vw) minmax(0, 80vw);
+.loginCard {
+  -webkit-box-shadow: 0 0 2vh 0vh rgba(0, 0, 0, 0.075);
+          box-shadow: 0 0 2vh 0vh rgba(0, 0, 0, 0.075);
+  background-color: white;
+  text-align: left;
+  position: absolute;
+  padding: 4vh;
+  width: 50vh;
+  height: 70vh;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
+
+.loginForm {
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: minmax(0, 30%) minmax(0, 50%) minmax(0, 20%);
+      grid-template-rows: minmax(0, 30%) minmax(0, 50%) minmax(0, 20%);
+  position: relative;
+}
+
+.loginTitle {
+  margin-top: 2vh;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  font-weight: 800;
+  font-size: 4vh;
+}
+
+.inputLabel {
+  font-weight: 700;
+}
+
+#loginInput {
+  width: 100%;
+  height: 5vh;
+  margin: 2vh 0;
+}
+
+#passwordInput {
+  width: 100%;
+  height: 5vh;
+  margin: 2vh 0;
+}
+
+.circularButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 100vh;
+  cursor: pointer;
+  background: linear-gradient(20deg, #009b6a 0%, #61c9a8 100%);
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=style.css.map */

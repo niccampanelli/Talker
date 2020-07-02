@@ -1,164 +1,319 @@
-.content{
-    position: fixed;
-    width: 100vw;
-    height: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, 20vw) minmax(0, 80vw);
+.content {
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 25vw) minmax(0, 75vw);
 }
 
-.contactList{
-    background-color: transparent;
-    z-index: 1;
-    overflow-y: scroll;
+.contactList {
+  background-color: transparent;
+  width: 100%;
+  z-index: 1;
+  overflow-y: scroll;
 }
 
-    .contact{
-        width: 100%;
-        height: 15vh;
-        z-index: 1;
-        text-align: left;
-        padding: 2vh;
-        margin-bottom: 2vh;
-    }
-
-.chatSection{
-    background-color: rgb(255, 255, 255);
-    display: grid;
-    grid-template-rows: minmax(0, 10vh) minmax(0, 75vh) minmax(0, 15vh);
-    box-shadow: 0 0 5vh 0vh rgba(0, 0, 0, 0.247);
-    z-index: 2;
+.contact {
+  cursor: pointer;
+  position: relative;
+  background-color: white;
+  display: grid;
+  grid-template-columns: minmax(0, 20%) minmax(0, 80%);
+  grid-template-rows: 100%;
+  width: 100%;
+  height: 15vh;
+  z-index: 1;
+  text-align: left;
+  padding: 2vh;
+  transition: background-color ease-in-out .2s;
 }
 
-.chatHeader{
-    display: grid;
-    grid-template-columns: minmax(0, 8%) minmax(0, 87%) minmax(0, 5%);
-    border-bottom: .2vh solid rgba(0, 0, 0, 0.350);
-    padding: 2vh;
-    z-index: 3;
+.contactListPhoto{
+  margin: auto;
+  width: 8vh;
+  height: 8vh;
 }
 
-.contactImg{
-    width: 8vh;
-    height: 8vh;
-    margin: 0 !important;
-    align-self: center;
-    justify-self: center;
+.contactListImg{
+  border-radius: 50vh;
+  width: 100%;
+  height: 100%;
 }
 
-.contactName{
-    font-weight: 800;
-    width: 100%;
+.contactListInfo{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(0, 35%) minmax(0, 65%);
 }
 
-.configBtn{
-    cursor: pointer;
-    position: absolute;
-    right: 2vh;
-    top: 2.5vh;
-    width: 4vh;
-    height: 4vh;
+.contactListName{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 26vh;
+  margin-left: 3vh;
 }
 
-.settingsPopup{
-    position: fixed;
-    margin: auto;
-    right: 2vh;
-    top: 10vh;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 1vh 5vh 0vh rgba(0, 0, 0, 0.438);
-    width: 40vh;
-    height: 75%;
-    z-index: 10;
+.contactListSettings{
+  opacity: 0;
+  position: absolute;
+  right: 1vh;
+  top: 2vh;
+  transition: opacity .3s ease-in-out;
 }
 
-.userPhoto{
-    position: relative;
-    width: 100%;
-    height: 40%;
+.contactListLastMessage{
+  font-size: 2.5vh;
+  font-weight: 400;
+  margin-left: 3vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 23vh;
+  height: 6vh;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; 
 }
 
-.userImg{
-    width: 20vh;
-    height: 20vh;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    border-radius: 100vh;
+.contactListLastMessageTime{
+  position: absolute;
+  right: 2vh;
+  bottom: 0;
+  text-align: right;
+  font-size: 2vh;
+  font-weight: 400;
+  margin-left: 3vh;
+  height: 6vh;
 }
 
-.settingsButtons{
-    height: 60%;
-    display: grid;
-    grid-template-rows: repeat(4, minmax(0, 100%));
+.archivedChatsButton{
+  background-color: rgb(216, 216, 216);
+  height: 10vh;
+  width: 100%;
 }
 
-.popupOptions{
-    border-bottom: .2vh solid rgba(0, 0, 0, 0.350);
+.archivedChatsLink{
+  font-weight: 400;
 }
 
-.closePopup{
-    background-color: white;
-    border: none;
-    outline: none;
-    position: fixed;
-    cursor: pointer;
-    right: 2vh;
-    top: 2.5vh;
+.chatSection {
+  position: relative;
+  background-color: white;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: minmax(0, 85vh) minmax(0, 15vh);
+      grid-template-rows: minmax(0, 85vh) minmax(0, 15vh);
+  -webkit-box-shadow: 0 0 6vh 0vh rgba(0, 0, 0, 0.150);
+          box-shadow: 0 0 6vh 0vh rgba(0, 0, 0, 0.150);
+  z-index: 2;
 }
 
-.messagesSection{
-    padding: 2vh;
-    overflow-y: scroll;
+.chatHeader {
+  background-color: white;
+  position: absolute;
+  width: 95%;
+  border-radius: 2vh;
+  margin: auto;
+  top: 2vh;
+  left: 0;
+  right: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 8%) minmax(0, 92%);
+      grid-template-columns: minmax(0, 8%) minmax(0, 92%);
+  -webkit-box-shadow: 0 0 6vh 0vh rgba(0, 0, 0, 0.150);
+      box-shadow: 0 0 2vh .1vh rgba(0, 0, 0, 0.150);
+  padding: 2vh;
+  z-index: 3;
 }
 
-.message{
-    background-color: rgb(255, 145, 0);
-    color: white;
-    width: 50vh;
-    padding: 2vh;
-    border-radius: 0 3vh 3vh 3vh;
-    margin-bottom: 2vh;
+.contactImg {
+  position: relative;
+  border-radius: 50vh;
+  width: 8vh;
+  height: 8vh;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
-.messageText{
-    font-weight: 400;
+.contactName {
+  margin-left: 2vh;
+  font-weight: 800;
+  width: 100%;
 }
 
-.messageTime{
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.550);
-    font-size: 2vh;
-    align-self: flex-end;
+.contactStatus{
+  margin-left: 2vh;
+  font-weight: 400;
+  font-size: 2.5vh;
 }
 
-.sendSection{
-    padding: 2vh;
-    border-top: .2vh solid rgba(0, 0, 0, 0.350);
+.configBtn {
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  margin: auto;
+  right: 2vh;
+  top: 0;
+  bottom: 0;
+  width: 5vh;
+  height: 5vh;
 }
 
-.messageInput{
-    border-radius: 20vh 20vh 0 20vh;
-    background-color: rgb(207, 207, 207);
-    resize: none;
-    width: 92%;
-    height: 100%;
-    padding: 2vh 5vh 2vh 5vh;
-    text-align: right;
-    z-index: 3;
+.searchBtn {
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  margin: auto;
+  right: 10vh;
+  top: 0;
+  bottom: 0;
+  width: 4.5vh;
+  height: 4.5vh;
 }
 
-.sendMessageBtn{
-    width: 8vh;
-    height: 8vh;
-    background-color: rgb(0, 186, 192);
-    border-radius: 100%;
-    margin: 2vh;
+.settingsPopup {
+  position: fixed;
+  margin: auto;
+  right: 2vh;
+  top: 10vh;
+  background-color: white;
+  -webkit-box-shadow: 0 1vh 5vh 0vh rgba(0, 0, 0, 0.438);
+          box-shadow: 0 1vh 5vh 0vh rgba(0, 0, 0, 0.438);
+  width: 40vh;
+  height: 75%;
+  z-index: 10;
 }
 
-.sendMessageBtn svg{
-    display: block;
-    margin: auto;
+.userPhoto {
+  position: relative;
+  width: 100%;
+  height: 40%;
 }
+
+.userImg {
+  width: 20vh;
+  height: 20vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 100vh;
+}
+
+.settingsButtons {
+  height: 60%;
+  display: -ms-grid;
+  display: grid;
+      grid-template-rows: repeat(4, minmax(0, 100%));
+}
+
+.popupOptions {
+  border-bottom: 0.2vh solid rgba(0, 0, 0, 0.35);
+}
+
+.closePopup {
+  background-color: white;
+  border: none;
+  outline: none;
+  position: fixed;
+  cursor: pointer;
+  right: 2vh;
+  top: 2.5vh;
+}
+
+.messagesSection {
+  padding: 20vh 2vh 2vh 2vh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.message {
+  display: table;
+  background-color: #ff5d51;
+  text-align: left;
+  color: white;
+  max-width: 100vh;
+  min-width: 10vh;
+  padding: 2vh;
+  border-radius: 0vh 3vh 3vh 3vh;
+  margin-bottom: 2vh;
+  margin-left: 0;
+  margin-right: auto;
+  position: relative;
+}
+
+.sentMessage {
+  display: table;
+  background-color: #f33022;
+  text-align: right;
+  color: white;
+  max-width: 100vh;
+  min-width: 10vh;
+  padding: 2vh;
+  border-radius: 3vh 3vh 0 3vh;
+  margin-bottom: 2vh;
+  margin-right: 0;
+  margin-left: auto;
+  position: relative;
+}
+
+.messageText {
+  font-weight: 400;
+  margin-bottom: .5vh;
+}
+
+.messageTime {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.596);
+  font-size: 2vh;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.sendSection {
+  position: relative;
+  padding: 2vh 2vh 2vh 2vh;
+  border-top: 0.2vh solid rgba(0, 0, 0, 0.35);
+}
+
+.messageInput {
+  border-radius: 20vh 20vh 0 20vh;
+  background-color: #cfcfcf;
+  resize: none;
+  width: 92.5%;
+  height: 100%;
+  padding: 2vh 5vh 2vh 5vh;
+  text-align: right;
+  z-index: 3;
+}
+
+.sendMessageBtn {
+  position: absolute;
+  margin: auto;
+  right: 2vh;
+  top: 0;
+  bottom: 0;
+  width: 5vw;
+  height: 5vw;
+  background-color: red;
+  border-radius: 100%;
+}
+
+.sendMessageBtn svg {
+  display: block;
+  margin: auto;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */

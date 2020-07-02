@@ -1,26 +1,27 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-size: 3vh;
   font-family: 'Raleway', sans-serif;
   border: none;
   outline: none;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-body{
-  background-color: rgb(218, 218, 218);
+body {
+  background-color: #e4dcd3;
 }
 
-::-webkit-scrollbar{
-  width: .5vh;
+::-webkit-scrollbar {
+  width: .8vh;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.479);
+  background-color: rgba(255, 255, 255, 0.945);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   outline: none;
   display: none;
   background-color: transparent;
@@ -28,16 +29,19 @@ body{
   box-shadow: none;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   outline: none;
-  background-color: rgba(0, 0, 0, 0.13);
+  background-color: rgba(0, 0, 0, 0.055);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 ::-webkit-scrollbar-thumb:window-inactive {
   background: none;
 }
 
-.defaultButton{
-  background-color: tomato;
+.defaultInput {
+  border-radius: 5vh;
+  background-color: #dadada;
 }
+/*# sourceMappingURL=global.css.map */

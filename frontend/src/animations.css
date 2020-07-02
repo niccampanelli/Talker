@@ -1,6 +1,12 @@
-.contact:active{
-    background-color: rgb(209, 209, 209);
+.contact:hover{
+    background-color: rgb(228, 228, 228);
 }
+
+.contact:hover .contactListSettings{
+    opacity: 1;
+}
+
+.archived
 
 .configBtn:hover{
     color: rgb(95, 95, 95);

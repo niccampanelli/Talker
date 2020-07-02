@@ -1,17 +1,37 @@
 import React, { useState } from 'react';
 import './style.css';
-import { FiMoreVertical, FiSend, FiX } from 'react-icons/fi'
-import ImageExample from '../../assets/images/imageExample.jpg'
+import { FiArrowRight } from 'react-icons/fi'
 
 export default function Home(){
+
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+
+    async function handleLogin(e){
+        e.preventDefault();
+
+        try{
+
+        }
+        catch(err){
+
+        }
+
+    }
+
     return(
         <div className="App">
             <div className="content">
                <main className="loginCard">
-                   <form className="loginForm">
-                        <input className="defaultInput" id="loginInput"/>
-                        <input className="defaultInput" id="passwordInput"/>
-                        <button className="defaultButton">Continuar</button>
+                   <form onSubmit={handleLogin} className="loginForm">
+                        <h1 className="loginTitle">Identifique-se</h1>
+                            <div className="inputs">
+                                <label htmlFor="loginInput" className="inputLabel">Login</label>
+                                    <input onChange={e => setLogin( e.target.value )} className="defaultInput" id="loginInput"/>
+                                <label htmlFor="passwordInput" className="inputLabel">Senha</label>
+                                    <input onChange={e => setPassword( e.target.value )} className="defaultInput" id="passwordInput"/>
+                            </div>
+                        <button type="submit" className="circularButton"><FiArrowRight/></button>
                    </form>
                </main>
             </div>
