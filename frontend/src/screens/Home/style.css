@@ -6,17 +6,20 @@
   grid-template-columns: minmax(0, 25vw) minmax(0, 75vw);
 }
 
+.sideSection{
+  width: 100%;
+  height: 100%;
+}
+
 .currentUser{
   background-color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: 2;
-  width: 25vw;
+  width: 100%;
   height: 15vh;
   padding: 2vh;
   display: grid;
   grid-template-columns: minmax(0, 20%) minmax(0, 80%);
+  border-bottom: .2vh solid rgba(0, 0, 0, 0.35);
 }
 
 .currentUserPhoto{
@@ -57,9 +60,9 @@
 }
 
 .contactList {
-  padding-top: 15vh;
   background-color: transparent;
   width: 100%;
+  height: 85vh;
   z-index: 1;
   overflow-y: scroll;
 }
@@ -111,6 +114,10 @@
 }
 
 .contactListSettings{
+  background-color: transparent;
+  cursor: pointer;
+  width: 5vh;
+  height: 5vh;
   opacity: 0;
   position: absolute;
   right: 1vh;

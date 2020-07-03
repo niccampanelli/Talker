@@ -1,223 +1,240 @@
 import React, { useState } from 'react';
 import './style.css';
-import { FiMoreVertical, FiSend, FiX, FiSearch, FiSmile, FiPaperclip } from 'react-icons/fi'
+import { FiMoreVertical, FiSend, FiX, FiSearch, FiSmile, FiPaperclip, FiMapPin, FiBellOff, FiArchive } from 'react-icons/fi'
+import { AiOutlinePushpin } from 'react-icons/ai'
 import ImageExample from '../../assets/images/imageExample.jpg'
 
 export default function Home(){
 
+    const [editingContact, setEditingContact] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
 
     function popupManage(cond){
         setShowPopup(cond);
     }
 
+    function showContactEdition(){
+        editingContact ? setEditingContact(false) : setEditingContact(true);
+    }
+
+    const ContactEditionComponent = () => (
+        <div className="contactEdition">
+            <div className="pinContact"><AiOutlinePushpin/></div>
+            <div className="silenceContact"><FiBellOff/></div>
+            <div className="archiveContact"><FiArchive/></div>
+        </div>
+    )
+
     return(
         <div className="App">
             <div className="content">
-                <section className="contactList">
+                <section className="sideSection">
                     <div className="currentUser">
                         <div className="currentUserPhoto">
                             <img src={ImageExample} className="currentUserImg"/>
                         </div>
                         <div className="currentUserInfo">
-                            <h1 className="currentUserName">Fernando Henrique Cardoso</h1>
+                            <h1 className="currentUserName">Nicholas Campanelli</h1>
                             <h1 className="currentUserDetail">Eu sou o nicholas</h1>
                         </div>
                     </div>
-                    <div className="contacts">
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Contato do Milu
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
+                    <section className="contactList">
+                        <div className="contacts">
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Contato do Milu
+                                    </h1>
+                                    <button className="contactListSettings" onClick={showContactEdition}><FiMoreVertical/></button>
+                                    <h2 className="contactListLastMessage">
+                                        Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                                {editingContact && <ContactEditionComponent/>}
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Lucas Campanelli
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Ina me dá o milu
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Nutalitas
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Ina o miluzinho é bobo
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Pinguim do nuta
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Oi eu sou o Pinguim
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Pinguim gordinho
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Ina
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        +55 11 91025-4730
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Gilberto
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Boa noite, lorem ipsum sit dot sla oq mais
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        João Silva
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Bom dia, eu gostaria muito de saber se o milu é fofo
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Milu Fofo
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Milu Fofo
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                            <button className="contact">
+                                <div className="contactListPhoto">
+                                    <img className="contactListImg" src={ImageExample}></img>
+                                </div>
+                                <div className="contactListInfo">
+                                    <h1 className="contactListName">
+                                        Milu Fofo
+                                    </h1>
+                                    <FiMoreVertical className="contactListSettings"/>
+                                    <h2 className="contactListLastMessage">
+                                        Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
+                                    </h2>
+                                    <h2 className="contactListLastMessageTime">
+                                        10:23
+                                    </h2>
+                                </div>
+                            </button>
+                        </div>
+                        <button className="archivedChatsButton">
+                            <h2 className="archivedChatsLink">
+                                Conversas Arquivadas
+                            </h2>
                         </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Lucas Campanelli
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Ina me dá o milu
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Nutalitas
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Ina o miluzinho é bobo
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Pinguim do nuta
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Oi eu sou o Pinguim
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Pinguim gordinho
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Ina
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    +55 11 91025-4730
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Gilberto
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Boa noite, lorem ipsum sit dot sla oq mais
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    João Silva
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Bom dia, eu gostaria muito de saber se o milu é fofo
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Milu Fofo
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Milu Fofo
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                        <button className="contact">
-                            <div className="contactListPhoto">
-                                <img className="contactListImg" src={ImageExample}></img>
-                            </div>
-                            <div className="contactListInfo">
-                                <h1 className="contactListName">
-                                    Milu Fofo
-                                </h1>
-                                <FiMoreVertical className="contactListSettings"/>
-                                <h2 className="contactListLastMessage">
-                                    Olá nicholas kkkkkk eu sou o milu muito fofo miluzinho kkkkkk :D :) asdqf nuta nutalitas
-                                </h2>
-                                <h2 className="contactListLastMessageTime">
-                                    10:23
-                                </h2>
-                            </div>
-                        </button>
-                    </div>
-                    <button className="archivedChatsButton">
-                        <h2 className="archivedChatsLink">
-                            Conversas Arquivadas
-                        </h2>
-                    </button>
+                    </section>
                 </section>
                 <main className="chatSection">
                     <header className="chatHeader">
