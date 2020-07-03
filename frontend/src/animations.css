@@ -6,7 +6,9 @@
     opacity: 1;
 }
 
-.archived
+.archivedChatsButton:hover{
+    color: rgb(177, 177, 177);
+}
 
 .configBtn:hover{
     color: rgb(95, 95, 95);
