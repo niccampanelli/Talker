@@ -6,6 +6,57 @@
     opacity: 1;
 }
 
+.contactEditionBackground{
+    position: absolute;
+    transform-box: view-box;
+    transform-origin: top right;
+    top: -10vh;
+    right: -6vh;
+    z-index: 1;
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50vh 50vh 50vh 50vh;
+    background-color: rgb(241, 106, 106);
+    animation: contactEditionFadeIn .6s forwards;
+}
+
+.ContactEditionBackgroundClosing{
+    animation: contactEditionFadeOut 1s forwards;
+}
+
+@keyframes contactEditionFadeIn{
+    0%{
+        transform: scale(0, 0);
+   }
+   100%{
+       transform: scale(1, 1);
+   }
+}
+
+@keyframes contactEditionFadeOut{
+    0%{
+        transform: scale(1, 1);
+   }
+   100%{
+       transform: scale(0, 0);
+   }
+}
+
+.contactEditionButtons{
+    opacity: 0;
+    animation: fadeIn .6s forwards;
+    animation-delay: .1s;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 .archivedChatsButton:hover{
     color: rgb(177, 177, 177);
 }
