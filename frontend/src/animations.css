@@ -24,6 +24,10 @@
     animation: contactEditionFadeOut 1s forwards;
 }
 
+.settingsPopup{
+    animation: fadeIn .2s forwards;
+}
+
 @keyframes contactEditionFadeIn{
     0%{
         transform: scale(0, 0);
@@ -57,6 +61,15 @@
     }
 }
 
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 .archivedChatsButton:hover{
     color: rgb(177, 177, 177);
 }

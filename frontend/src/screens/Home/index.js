@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
-import { FiMoreVertical, FiSend, FiX, FiSearch, FiSmile, FiPaperclip, FiMapPin, FiBellOff, FiArchive } from 'react-icons/fi'
+import { FiMoreVertical, FiSend, FiSearch, FiSmile, FiPaperclip, FiBellOff, FiArchive } from 'react-icons/fi'
 import { AiOutlinePushpin } from 'react-icons/ai'
-import {CSSTransition} from 'react-transition-group';
 import ImageExample from '../../assets/images/imageExample.jpg'
 
 export default function Home(){
@@ -11,8 +10,8 @@ export default function Home(){
     const [editingContact, setEditingContact] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
 
-    function popupManage(cond){
-        setShowPopup(cond);
+    function popupManage(){
+        setShowPopup(!showPopup);
     }
 
     function showContactEdition(){
@@ -24,6 +23,20 @@ export default function Home(){
             document.getElementById("contactEditionBackground").classList.add("ContactEditionBackgroundClosing")
         }
     }
+
+    const SettingsPopupComponent = () => (
+        <div onClick={popupManage} className="clickBlocker">
+        <div className="settingsPopup">
+            <div className="settingsButtons">
+                <button className="popupOptions">Nicholas Campanelli</button>
+                <button className="popupOptions">Fixar Contato</button>
+                <button className="popupOptions">Silenciar Contato</button>
+                <button className="popupOptions">Arquivar Contato</button>
+                <button className="popupOptions"></button>
+            </div>
+        </div>
+        </div>
+    )
 
     const ContactEditionComponent = () => (
         <div className="contactEdition">
@@ -84,21 +97,10 @@ export default function Home(){
                                 <h1 className="contactName">Contato do Milu</h1>
                                 <h1 className="contactStatus">Online pela última vez: 10:23</h1>
                             </div>
-                        <button onClick={() => popupManage(true)} className="searchBtn"><FiSearch size={"4.5vh"}/></button>
-                        <button onClick={() => popupManage(true)} className="configBtn"><FiMoreVertical size={"5vh"}/></button>
+                        <button className="searchBtn"><FiSearch size={"4.5vh"}/></button>
+                        <button onClick={popupManage} className="configBtn"><FiMoreVertical size={"5vh"}/></button>
+                        {showPopup && <SettingsPopupComponent/>}
                     </header>
-                    {showPopup && <div className="settingsPopup">
-                        <button onClick={() => popupManage(false)} className="closePopup"><FiX size={"4vh"}/></button>
-                            <div className="userPhoto">
-                                <img className="userImg" src={ImageExample}></img>
-                            </div>
-                            <div className="settingsButtons">
-                                <button className="popupOptions">Nicholas Campanelli</button>
-                                <button className="popupOptions">Opções</button>
-                                <button className="popupOptions">Sobre</button>
-                                <button className="popupOptions">Sair</button>
-                            </div>
-                    </div>}
                     <div className="messagesSection">
                             <div className="message">
                                 <h1 className="messageText">
