@@ -104,9 +104,10 @@ export default function Home(){
                         <button onClick={popupManage} className="configBtn"><FiMoreVertical size={"5vh"}/></button>
                         {showPopup && <SettingsPopupComponent/>}
                     </header>
-                    <div className="contactInfoSection" style={contactMoreInfoOpened ? {transform: "scaleY(1)"} : {transform: "scaleY(0)"}}>
-                        <h1 className="contactAddedIn">Contato adicionado em <h1 className="contactAddedInDate">20/10/2019</h1></h1>
-                    </div>
+                    <div onClick={() => setContactMoreInfo(!contactMoreInfoOpened)} className="clickBlocker" style={contactMoreInfoOpened ? {display: "block"} : {display: "none"}}/>
+                        <div className="contactInfoSection" style={contactMoreInfoOpened ? {transform: "scaleY(1)"} : {transform: "scaleY(0)"}}>
+                            <h1 className="contactAddedIn">Contato adicionado em <h1 className="contactAddedInDate">20/10/2019</h1></h1>
+                        </div>
                     <div className="messagesSection">
                             <div className="message">
                                 <h1 className="messageText">
