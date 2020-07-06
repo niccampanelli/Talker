@@ -77,3 +77,24 @@
 .configBtn:hover{
     color: rgb(95, 95, 95);
 }
+
+.popupOptions:hover{
+    background-color: #d3d3d3;
+}
+
+.chatHeader{
+    transition: all 5s ease-in-out;
+}
+
+.contactImg{
+    transition: all .2s ease-in-out;
+}
+
+.moreinfoBtn svg{
+    transition: transform .2s ease-in-out;
+}
+
+.contactInfoSection{
+    transform-origin: top;
+    transition: all .2s ease-in-out;
+}

@@ -209,7 +209,8 @@
 .chatHeader {
   background-color: white;
   position: absolute;
-  width: 95%;
+  width: 95%; 
+  height: 12vh;
   border-radius: 2vh;
   margin: auto;
   top: 2vh;
@@ -266,12 +267,24 @@
   height: 5vh;
 }
 
-.searchBtn {
+.moreinfoBtn {
   background-color: white;
   cursor: pointer;
   position: absolute;
   margin: auto;
   right: 10vh;
+  top: 0;
+  bottom: 0;
+  width: 4.5vh;
+  height: 4.5vh;
+}
+
+.searchBtn {
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  margin: auto;
+  right: 18vh;
   top: 0;
   bottom: 0;
   width: 4.5vh;
@@ -304,14 +317,25 @@
   text-align: left;
 }
 
-.closePopup {
+.contactInfoSection{
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 2vh;
   background-color: white;
-  border: none;
-  outline: none;
-  position: fixed;
-  cursor: pointer;
-  right: 2vh;
-  top: 2.5vh;
+  width: 95%;
+  height: 80%;
+  margin: auto;
+  padding: 12vh 4vh 4vh 32vh;
+  border-radius: 2vh;
+  -webkit-box-shadow: 0 0vh 3vh .5vh rgba(0, 0, 0, 0.247);
+          box-shadow: 0 0vh 3vh .5vh rgba(0, 0, 0, 0.267);
+}
+
+.contactAddedInDate{
+  font-size: 2.5vh;
+  font-weight: 400;
 }
 
 .messagesSection {

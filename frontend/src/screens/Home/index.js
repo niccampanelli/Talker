@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import { FiMoreVertical, FiSend, FiSearch, FiSmile, FiPaperclip, FiBellOff, FiArchive } from 'react-icons/fi'
+import { FiMoreVertical, FiSend, FiSearch, FiSmile, FiPaperclip, FiBellOff, FiArchive, FiChevronDown } from 'react-icons/fi'
 import { AiOutlinePushpin } from 'react-icons/ai'
 import ImageExample from '../../assets/images/imageExample.jpg'
 
@@ -8,6 +8,7 @@ export default function Home(){
 
     //States used in all contact related-----------------------------
     const [editingContact, setEditingContact] = useState(false);
+    const [contactMoreInfoOpened, setContactMoreInfo] = useState(false)
     const [showPopup, setShowPopup] = useState(false);
 
     function popupManage(){
@@ -26,15 +27,16 @@ export default function Home(){
 
     const SettingsPopupComponent = () => (
         <div onClick={popupManage} className="clickBlocker">
-        <div className="settingsPopup">
-            <div className="settingsButtons">
-                <button className="popupOptions">Nicholas Campanelli</button>
-                <button className="popupOptions">Fixar Contato</button>
-                <button className="popupOptions">Silenciar Contato</button>
-                <button className="popupOptions">Arquivar Contato</button>
-                <button className="popupOptions"></button>
+            <div className="settingsPopup">
+                <div className="settingsButtons">
+                    <button className="popupOptions">Mais Informações</button>
+                    <button className="popupOptions">Fixar Contato</button>
+                    <button className="popupOptions">Silenciar Contato</button>
+                    <button className="popupOptions">Arquivar Contato</button>
+                    <button className="popupOptions">Bloquear Contato</button>
+                    <button className="popupOptions">Papel de Parede</button>
+                </div>
             </div>
-        </div>
         </div>
     )
 
@@ -91,16 +93,20 @@ export default function Home(){
                     </section>
                 </section>
                 <main className="chatSection">
-                    <header className="chatHeader">
-                            <img className="contactImg" src={ImageExample} alt="Imagem do Contato"></img>
+                    <header className="chatHeader" style={contactMoreInfoOpened ? {boxShadow: "none", gridTemplateColumns: "minmax(0, 20%) minmax(0, 80%)"} : {boxShadow: "0 0vh 3vh .5vh rgba(0, 0, 0, 0.267)"}}>
+                            <img className="contactImg" src={ImageExample} alt="Imagem do Contato"  style={contactMoreInfoOpened ? {height: "28vh", width: "28vh", borderRadius: "2vh"} : {height: "8vh", width: "8vh"}}></img>
                             <div className="contactInfo">
                                 <h1 className="contactName">Contato do Milu</h1>
-                                <h1 className="contactStatus">Online pela última vez: 10:23</h1>
+                                <h1 className="contactStatus">Online pela última vez: 10:20</h1>
                             </div>
                         <button className="searchBtn"><FiSearch size={"4.5vh"}/></button>
+                        <button onClick={() => setContactMoreInfo(!contactMoreInfoOpened)} className="moreinfoBtn"><FiChevronDown size={"5vh"} style={contactMoreInfoOpened ? {transform: "rotateZ(180deg)"} : {transform: "rotateZ(0)"}}/></button>
                         <button onClick={popupManage} className="configBtn"><FiMoreVertical size={"5vh"}/></button>
                         {showPopup && <SettingsPopupComponent/>}
                     </header>
+                    <div className="contactInfoSection" style={contactMoreInfoOpened ? {transform: "scaleY(1)"} : {transform: "scaleY(0)"}}>
+                        <h1 className="contactAddedIn">Contato adicionado em <h1 className="contactAddedInDate">20/10/2019</h1></h1>
+                    </div>
                     <div className="messagesSection">
                             <div className="message">
                                 <h1 className="messageText">
