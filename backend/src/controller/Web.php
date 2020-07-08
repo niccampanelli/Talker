@@ -1,19 +1,15 @@
 <?php
 
-require __DIR__."/vendor/autoload.php";
+namespace src\controller;
 
-$router = new Router(URL);
-$router->namespace("Source\controller");
+class Web {
 
-//USER RELATED ROUTES ------------------------------------------------------
-$router->group(null);
-    $router->post("/login", "Web:login");
-    $router->post("/register", "Web:register");
+    public function login() : void{
+        echo "teste milu";
+    }
 
-//CONTACTS RELATED ROUTES --------------------------------------------------
-    $router->get("/listcontacts", "Web:listcontacts");
-    $router->post("/addcontacts", "Web:addcontacts");
+    public function error($data) : void{
+        echo "<h1> Opa! Erro {$data["errcode"]}</h1>";
+    }
 
-//CHAT RELATED ROUTES ------------------------------------------------------
-    $router->get("/recievedmessages", "Web:recievedmessages");
-    $router->post("/sendmessage", "Web:sendmessage");
+}
