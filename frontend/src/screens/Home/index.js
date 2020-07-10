@@ -58,7 +58,7 @@ export default function Home(){
                     <div className="currentUser">
                         <img src={ImageExample} className="currentUserImg"/>
                             <div id="currentUserStatus" className="currentUserStatus">
-                                <h1 id="currentUserStatusEmoji">⚡</h1>   
+                                <h1 id="currentUserStatusEmoji">🐧</h1>   
                             </div>
                         <div className="currentUserInfo">
                             <h1 className="currentUserName">Nicholas Campanelli</h1>
