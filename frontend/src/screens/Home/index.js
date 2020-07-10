@@ -56,9 +56,10 @@ export default function Home(){
             <div className="content">
                 <section className="sideSection">
                     <div className="currentUser">
-                        <div className="currentUserPhoto">
-                            <img src={ImageExample} className="currentUserImg"/>
-                        </div>
+                        <img src={ImageExample} className="currentUserImg"/>
+                            <div id="currentUserStatus" className="currentUserStatus">
+                                <h1 id="currentUserStatusEmoji">⚡</h1>   
+                            </div>
                         <div className="currentUserInfo">
                             <h1 className="currentUserName">Nicholas Campanelli</h1>
                             <h1 className="currentUserDetail">Eu sou o nicholas</h1>
