@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import { FiMoreVertical, FiSend, FiSearch, FiSmile, FiPaperclip, FiBellOff, FiArchive, FiChevronDown } from 'react-icons/fi'
 import { AiOutlinePushpin } from 'react-icons/ai'
+import EmojiButton from '@joeattardi/emoji-button';
 import ImageExample from '../../assets/images/imageExample.jpg'
 
 export default function Home(){
@@ -10,6 +11,19 @@ export default function Home(){
     const [editingContact, setEditingContact] = useState(false);
     const [contactMoreInfoOpened, setContactMoreInfo] = useState(false)
     const [showPopup, setShowPopup] = useState(false);
+
+    window.onload = function(){
+        const button = document.getElementById("emojiButton");
+        const picker = new EmojiButton({emojiSize: "5vh", autoHide: false, showPreview: false});
+        
+        picker.on('emoji', emoji => {
+            document.getElementById('messageInput').value += emoji;
+        });
+        
+        button.addEventListener('click', function(){setTimeout(() => {
+            picker.togglePicker(button);
+        }, 500)});
+    }
 
     function popupManage(){
         setShowPopup(!showPopup);
@@ -29,7 +43,7 @@ export default function Home(){
         <div onClick={popupManage} className="clickBlocker">
             <div className="settingsPopup">
                 <div className="settingsButtons">
-                    <button className="popupOptions">Mais Informações</button>
+                    <button onClick={() => setContactMoreInfo(!contactMoreInfoOpened)} className="popupOptions">Mais Informações</button>
                     <button className="popupOptions">Fixar Contato</button>
                     <button className="popupOptions">Silenciar Contato</button>
                     <button className="popupOptions">Arquivar Contato</button>
@@ -288,9 +302,9 @@ Duis in arcu pharetra, molestie neque non, sodales diam. Integer molestie justo 
                             </div>
                     </div>
                     <div className="sendSection">
-                        <textarea className="messageInput" placeholder="Digite aqui..." required emoji></textarea>
+                        <textarea id="messageInput" className="messageInput" placeholder="Digite aqui..." required emoji></textarea>
                             <div className="messageButtons">
-                                <button className="emojiBtn"><FiSmile size={"4vh"}/></button>
+                                <button id="emojiButton" className="emojiBtn"><FiSmile size={"4vh"}/></button>
                                 <button className="sendAttachmentBtn"><FiPaperclip size={"4vh"}/></button>
                                 <button className="sendMessageBtn"><FiSend size={"4vh"}/></button>
                             </div>
