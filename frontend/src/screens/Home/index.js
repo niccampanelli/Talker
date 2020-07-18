@@ -13,8 +13,24 @@ export default function Home(){
     const [contactMoreInfoOpened, setContactMoreInfo] = useState(false)
     const [showPopup, setShowPopup] = useState(false);
 
-    async function apiConnection(){
-        const apiResponse = API.get("/contact", );
+    function apiConnection(){
+        async function listContacts(){
+            try{
+                const listedContacts = await API.get("/contact", );
+            }
+            catch(error){
+                console.log(error);
+            }
+        }
+        async function requestMessages(){
+            try{
+                const requestedMessages = await API.get("/message");
+                console.log(requestedMessages);
+            }
+            catch(error){
+                console.log(error);
+            }
+        }       
     }
 
     window.onload = function(){
