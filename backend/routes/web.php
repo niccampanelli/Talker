@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('/messageCreate', function(Request $request){
+    $user = \App\User::find($request->user_id);
+    $message = $user->messages()->create([
+        'content' => $request->content,
+        'receptor_id' => $request->receptor_id
+    ]);
+});
+
+Route::get('/message', function(){
+    return response(\App\Message::all());
+});
+
+Route::post('/contactCreate', function(){
+
+});
+
+Route::get('/contact', function(){
+    return response(\App\Contact::all());
 });
