@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API from '../../services/api';
 import './style.css';
 import { FiMoreVertical, FiSend, FiSearch, FiSmile, FiPaperclip, FiBellOff, FiArchive, FiChevronDown } from 'react-icons/fi'
 import { AiOutlinePushpin } from 'react-icons/ai'
@@ -11,6 +12,10 @@ export default function Home(){
     const [editingContact, setEditingContact] = useState(false);
     const [contactMoreInfoOpened, setContactMoreInfo] = useState(false)
     const [showPopup, setShowPopup] = useState(false);
+
+    async function apiConnection(){
+        const apiResponse = API.get("/contact", );
+    }
 
     window.onload = function(){
         const button = document.getElementById("emojiButton");
